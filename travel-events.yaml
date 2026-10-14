@@ -1,0 +1,323 @@
+travellers:
+  oliver: Oliver
+  kayleigh: Kayleigh
+  poppy: Poppy
+  charles: Charles
+
+groups:
+  family: oliver kayleigh poppy charles
+  parents: oliver kayleigh
+  children: poppy charles
+
+places:
+  AD: Andorra
+  AE: United Arab Emirates
+  AF: Afghanistan
+  AG: Antigua and Barbuda
+  AL: Albania
+  AM: Armenia
+  AO: Angola
+  AR: Argentina
+  AT: Austria
+  AU: Australia
+  AZ: Azerbaijan
+  BA: Bosnia and Herzegovina
+  BB: Barbados
+  BD: Bangladesh
+  BE: Belgium
+  BF: Burkina Faso
+  BG: Bulgaria
+  BH: Bahrain
+  BI: Burundi
+  BJ: Benin
+  BN: Brunei
+  BO: Bolivia
+  BR: Brazil
+  BS: Bahamas
+  BT: Bhutan
+  BW: Botswana
+  BY: Belarus
+  BZ: Belize
+  CA: Canada
+  CD: Democratic Republic of the Congo
+  CF: Central African Republic
+  CG: Republic of the Congo
+  CH: Switzerland
+  CI: Côte d'Ivoire
+  CL: Chile
+  CM: Cameroon
+  CN: China
+  CO: Colombia
+  CR: Costa Rica
+  CU: Cuba
+  CV: Cabo Verde
+  CY: Cyprus
+  CZ: Czechia
+  DE: Germany
+  DJ: Djibouti
+  DK: Denmark
+  DM: Dominica
+  DO: Dominican Republic
+  DZ: Algeria
+  EC: Ecuador
+  EE: Estonia
+  EG: Egypt
+  ER: Eritrea
+  ES: Spain
+  ET: Ethiopia
+  FI: Finland
+  FJ: Fiji
+  FM: Micronesia
+  FR: France
+  GA: Gabon
+  GB: United Kingdom
+  GD: Grenada
+  GE: Georgia
+  GF: French Guiana
+  GH: Ghana
+  GM: Gambia
+  GN: Guinea
+  GQ: Equatorial Guinea
+  GR: Greece
+  GT: Guatemala
+  GW: Guinea-Bissau
+  GY: Guyana
+  HN: Honduras
+  HR: Croatia
+  HT: Haiti
+  HU: Hungary
+  ID: Indonesia
+  IE: Ireland
+  IL: Israel
+  IN: India
+  IQ: Iraq
+  IR: Iran
+  IS: Iceland
+  IT: Italy
+  JM: Jamaica
+  JO: Jordan
+  JP: Japan
+  KE: Kenya
+  KG: Kyrgyzstan
+  KH: Cambodia
+  KI: Kiribati
+  KM: Comoros
+  KN: Saint Kitts and Nevis
+  KP: North Korea
+  KR: South Korea
+  KW: Kuwait
+  KZ: Kazakhstan
+  LA: Laos
+  LB: Lebanon
+  LC: Saint Lucia
+  LI: Liechtenstein
+  LK: Sri Lanka
+  LR: Liberia
+  LS: Lesotho
+  LT: Lithuania
+  LU: Luxembourg
+  LV: Latvia
+  LY: Libya
+  MA: Morocco
+  MC: Monaco
+  MD: Moldova
+  ME: Montenegro
+  MG: Madagascar
+  MH: Marshall Islands
+  MK: North Macedonia
+  ML: Mali
+  MM: Myanmar
+  MN: Mongolia
+  MR: Mauritania
+  MT: Malta
+  MU: Mauritius
+  MV: Maldives
+  MW: Malawi
+  MX: Mexico
+  MY: Malaysia
+  MZ: Mozambique
+  NA: Namibia
+  NE: Niger
+  NG: Nigeria
+  NI: Nicaragua
+  NL: Netherlands
+  NO: Norway
+  NP: Nepal
+  NR: Nauru
+  NZ: New Zealand
+  OM: Oman
+  PA: Panama
+  PE: Peru
+  PG: Papua New Guinea
+  PH: Philippines
+  PK: Pakistan
+  PL: Poland
+  PS: Palestine
+  PT: Portugal
+  PW: Palau
+  PY: Paraguay
+  QA: Qatar
+  RO: Romania
+  RS: Serbia
+  RU: Russia
+  RW: Rwanda
+  SA: Saudi Arabia
+  SB: Solomon Islands
+  SC: Seychelles
+  SD: Sudan
+  SE: Sweden
+  SG: Singapore
+  SI: Slovenia
+  SK: Slovakia
+  SL: Sierra Leone
+  SM: San Marino
+  SN: Senegal
+  SO: Somalia
+  SR: Suriname
+  SS: South Sudan
+  ST: São Tomé and Príncipe
+  SV: El Salvador
+  SY: Syria
+  SZ: Eswatini
+  TD: Chad
+  TG: Togo
+  TH: Thailand
+  TJ: Tajikistan
+  TL: Timor-Leste
+  TM: Turkmenistan
+  TN: Tunisia
+  TO: Tonga
+  TR: Turkey
+  TT: Trinidad and Tobago
+  TV: Tuvalu
+  TW: Taiwan
+  TZ: Tanzania
+  UA: Ukraine
+  UG: Uganda
+  US:
+    name: United States
+    regions:
+      AL: Alabama
+      AK: Alaska
+      AZ: Arizona
+      AR: Arkansas
+      CA: California
+      CO: Colorado
+      CT: Connecticut
+      DE: Delaware
+      DC: District of Columbia
+      FL: Florida
+      GA: Georgia
+      HI: Hawaii
+      ID: Idaho
+      IL: Illinois
+      IN: Indiana
+      IA: Iowa
+      KS: Kansas
+      KY: Kentucky
+      LA: Louisiana
+      ME: Maine
+      MD: Maryland
+      MA: Massachusetts
+      MI: Michigan
+      MN: Minnesota
+      MS: Mississippi
+      MO: Missouri
+      MT: Montana
+      NE: Nebraska
+      NV: Nevada
+      NH: New Hampshire
+      NJ: New Jersey
+      NM: New Mexico
+      NY: New York
+      NC: North Carolina
+      ND: North Dakota
+      OH: Ohio
+      OK: Oklahoma
+      OR: Oregon
+      PA: Pennsylvania
+      RI: Rhode Island
+      SC: South Carolina
+      SD: South Dakota
+      TN: Tennessee
+      TX: Texas
+      UT: Utah
+      VT: Vermont
+      VA: Virginia
+      WA: Washington
+      WV: West Virginia
+      WI: Wisconsin
+      WY: Wyoming
+      # US state-equivalent/territorial areas supported
+      AS: American Samoa
+      GU: Guam
+      MP: Northern Mariana Islands
+      PR: Puerto Rico
+      VI: US Virgin Islands
+  UY: Uruguay
+  UZ: Uzbekistan
+  VA: Vatican City
+  VC: Saint Vincent and the Grenadines
+  VE: Venezuela
+  VN: Vietnam
+  VU: Vanuatu
+  WS: Samoa
+  XK: Kosovo
+  YE: Yemen
+  ZA: South Africa
+  ZM: Zambia
+  ZW: Zimbabwe
+
+events:
+  - 2020-10 | US-NV | parents | Las Vegas
+  - 2006-08 | US-CA | kayleigh | San Francisco
+  - 2018-09 | US-CA | oliver | San Francisco, Cupertino
+  - 2025-12 | US-NY | family | New York City
+  - 2025-08 | FR | family | Paris
+  - 2026-04 | TR | family | Antalya
+  - 2026-07 | NL | oliver | Amsterdam
+  - 2026-02 | HU | family | Budapest
+  - 2026-02 | CZ | family | Prague
+  - 2026-02 | AT | family | Vienna
+  - 2025-08 | IE | parents | Dublin
+  - 2025-02 | MA | family | Marrakesh
+  - 2024-10 | GB | family | Belfast
+  - 2024-07 | ES | family | Salou
+  - 2024-05 | DE | oliver | Berlin | DevOpsDays Berlin
+  - 2024-04 | NO | family | Loen, Stavanger, Briksdalsbre, Aspøya
+  - 2024-04 | IE | oliver | Dublin
+  - 2024-03 | IE | oliver | Dublin
+  - 2024-01 | DE | family | Berlin
+  - 2023-11 | DE | oliver | Hamburg
+  - 2023-10 | PT | oliver | Porto
+  - 2023-05 | CV | family | Sal
+  - 2023-04 | NL | family | Amsterdam
+  - 2023-02 | RO | oliver | Cluj
+  - 2022-11 | IE | oliver | Dublin
+  - 2022-10 | IE | oliver | Dublin
+  - 2022-08 | MT | family | Mellieha, Valletta
+  - 2022-05 | FR | parents | Paris
+  - 2022-04 | AE | family | Dubai
+  - 2021-05 | GB | family | Wales
+  - 2020-09 | FR | family | Paris
+  - 2020-02 | DE | oliver | Hamburg
+  - 2018-05 | IT | oliver kayleigh poppy | Budoni
+  - 2017-10 | DE | oliver | Berlin
+  - 2017-02 | FR | oliver kayleigh poppy | Paris
+  - 2023-08 | GR | kayleigh | Crete
+  - 2020-03 | IT | kayleigh | Venice
+  - 2016-05 | ES | oliver kayleigh poppy | Palma
+  - 2016-05 | IT | oliver kayleigh poppy | Sardinia, Naples
+  - 2016-05 | GR | oliver kayleigh poppy | Kefalonia, Corfu
+  - 2013-01 | OM | parents | Muscat
+  - 2012-01 | EG | parents | Sharm El Sheikh, Cairo
+  - 2000-03 | FR | oliver | Paris
+  - 2006-08 | EG | oliver | Luxor
+  - 1970-01 | DE | oliver | Hamelin | As a child
+  - 1970-01 | ES | oliver | Unsure | As a child
+  - 1970-01 | TR | kayleigh | Unsure | As a child
+  - 1970-01 | GR | kayleigh | Unsure | As a child
+  - 1970-01 | CH | oliver kayleigh | Unsure | Part of Italy road trip, needs adding
+  - 2026-10 | CA | family | Toronto, Niagara Falls
+  - 2027-05 | US-FL | family | Fort Lauderdale
+  - 2027-05 | BS | family | CocoCay, Nassau
