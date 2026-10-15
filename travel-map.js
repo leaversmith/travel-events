@@ -39,7 +39,7 @@ async function loadTravelData() {
     );
 
     const response = await fetch(
-        "https://raw.githubusercontent.com/leaversmith/travel-events/main/travel-events.yaml"
+        "travel-events.yaml"
     );
 
     if (!response.ok) {
