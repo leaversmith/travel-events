@@ -1,0 +1,424 @@
+:root {
+    --fg: #013220;
+    --bg: #faf0e6;
+    --accent: #7B0323;
+
+    --muted: rgba(1, 50, 32, 0.58);
+    --rule: rgba(1, 50, 32, 0.20);
+
+    --map-land: #aaa79f;
+    --map-visited: var(--fg);
+    --map-planned: var(--accent);
+    --map-hover: #557064;
+    --map-visited-hover: #245a46;
+    --map-planned-hover: #9a2948;
+
+    --tc: 195;
+    --vc: 23;
+}
+
+@font-face {
+    font-family: 'garamond';
+    src: url('https://ols.wtf/rpgs/racheek/docs/garamond.ttf');
+}
+
+@font-face {
+    font-family: 'garamondi';
+    src: url('https://ols.wtf/rpgs/racheek/docs/garamondi.ttf');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--bg);
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+
+    font-family:
+        'garamond',
+        Garamond,
+        Georgia,
+        serif;
+
+    font-size: 20px;
+}
+
+.travel-page {
+    width: min(1200px, calc(100% - 48px));
+    margin: 64px auto;
+}
+
+.travel-header {
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+.travel-header h1 {
+    margin: 0 0 8px;
+
+    color: var(--fg);
+
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: normal;
+    line-height: 1;
+
+    letter-spacing: 0.035em;
+}
+
+.travel-header p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-family:
+        'garamondi',
+        Garamond,
+        Georgia,
+        serif;
+
+    font-size: 1.15rem;
+}
+
+.travel-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin: 0 0 24px;
+}
+
+.travel-filter button {
+    min-height: 46px;
+
+    padding: 9px 18px;
+
+    border:
+        1px solid
+        rgba(1, 50, 32, 0.35);
+
+    border-radius: 0;
+
+    background: transparent;
+    color: var(--fg);
+
+    font: inherit;
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transition:
+        background 120ms ease,
+        color 120ms ease,
+        border-color 120ms ease;
+}
+
+.travel-filter button:hover {
+    border-color: var(--fg);
+}
+
+.travel-filter button[aria-pressed="true"] {
+    border-color: var(--fg);
+    background: var(--fg);
+    color: var(--bg);
+}
+
+.travel-filter button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.travel-stats {
+    margin: 0 0 22px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-family:
+        'garamondi',
+        Garamond,
+        Georgia,
+        serif;
+
+    font-size: 1rem;
+}
+
+.map-wrapper {
+    width: 100%;
+}
+
+#travel-map-object {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 1080 / 480;
+
+    border: 0;
+}
+
+.place-details,
+.history-section {
+    margin-top: 36px;
+    padding-top: 28px;
+
+    border-top: 1px solid var(--rule);
+}
+
+.place-details {
+    min-height: 150px;
+}
+
+.place-details h2,
+.history-section h2 {
+    margin: 0 0 12px;
+
+    color: var(--fg);
+
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: normal;
+    line-height: 1.1;
+}
+
+.place-details p,
+.section-heading p {
+    margin: 0;
+    line-height: 1.45;
+}
+
+.section-heading p {
+    color: var(--muted);
+
+    font-family:
+        'garamondi',
+        Garamond,
+        Georgia,
+        serif;
+}
+
+.visit-history {
+    margin: 18px 0 0;
+    padding-left: 24px;
+}
+
+.visit-history li {
+    margin: 8px 0;
+    line-height: 1.4;
+}
+
+.visit-history strong {
+    color: var(--accent);
+    font-weight: normal;
+}
+
+.visit-history li.planned {
+    color: var(--accent);
+}
+
+.event-history {
+    margin: 24px 0 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.event-history .history-group {
+    display: grid;
+
+    grid-template-columns:
+        minmax(180px, 280px)
+        1fr;
+
+    gap: 28px;
+
+    padding: 28px 0;
+
+    border-top: 1px solid var(--rule);
+}
+
+.event-history .history-group:first-child {
+    border-top: 0;
+}
+
+.event-date {
+    color: var(--accent);
+
+    font-variant-numeric: tabular-nums;
+    line-height: 1.25;
+}
+
+.history-group-events {
+    display: flex;
+    flex-direction: column;
+
+    gap: 28px;
+}
+
+.history-event {
+    line-height: 1.3;
+}
+
+.event-place {
+    margin: 0;
+
+    color: var(--fg);
+
+    font-size: 1.15rem;
+    line-height: 1.2;
+}
+
+.event-people,
+.event-locations,
+.event-notes {
+    margin-top: 6px;
+
+    color: var(--muted);
+    line-height: 1.3;
+}
+
+.event-notes {
+    font-family:
+        'garamondi',
+        Garamond,
+        Georgia,
+        serif;
+}
+
+.history-event.planned .event-place {
+    color: var(--accent);
+}
+
+.history-event.planned .event-people,
+.history-event.planned .event-locations,
+.history-event.planned .event-notes {
+    color: color-mix(
+        in srgb,
+        var(--accent) 65%,
+        var(--muted)
+    );
+}
+
+.planned-label {
+    margin-left: 0.5em;
+
+    color: var(--accent);
+
+    font-family:
+        'garamondi',
+        Garamond,
+        Georgia,
+        serif;
+
+    font-size: 0.8em;
+    font-weight: normal;
+
+    white-space: nowrap;
+}
+
+.load-error {
+    margin-top: 24px;
+    color: var(--accent);
+}
+
+.travel-page a {
+    color: var(--accent);
+
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+}
+
+.travel-page a:hover {
+    text-decoration-thickness: 2px;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 18px;
+    }
+
+    .travel-page {
+        width: calc(100% - 32px);
+        margin: 40px auto;
+    }
+
+    .travel-header {
+        margin-bottom: 28px;
+    }
+
+    .travel-header h1 {
+        font-size: clamp(2.5rem, 12vw, 3.5rem);
+        line-height: 0.95;
+    }
+
+    .travel-header p {
+        margin-top: 12px;
+        font-size: 1.05rem;
+    }
+
+    .travel-filter {
+        gap: 7px;
+        margin-bottom: 16px;
+    }
+
+    .travel-filter button {
+        min-height: 44px;
+        padding: 8px 15px;
+    }
+
+    .travel-stats {
+        margin-bottom: 16px;
+    }
+
+    #travel-map-object {
+        width: 100%;
+        aspect-ratio: 1080 / 480;
+    }
+
+    .place-details,
+    .history-section {
+        margin-top: 28px;
+        padding-top: 24px;
+    }
+
+    .place-details {
+        min-height: 0;
+    }
+
+    .place-details h2,
+    .history-section h2 {
+        font-size: 2rem;
+    }
+
+    .event-history {
+        margin-top: 18px;
+    }
+
+    .event-history .history-group {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+
+        padding: 20px 0;
+    }
+
+    .history-group-events {
+        gap: 24px;
+    }
+
+    .event-date {
+        margin-bottom: 2px;
+    }
+
+    .event-place {
+        font-size: 1.12rem;
+    }
+}

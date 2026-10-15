@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Places | leaversmith.com</title>
+
+    <link rel="stylesheet" href="travel-map.css">
+</head>
+
+<body>
+
+    <main class="travel-page">
+
+        <header class="travel-header">
+            <h1>Places</h1>
+            <p>It is better to see something once than to hear about it 1,000 times</p>
+        </header>
+
+        <nav
+            class="travel-filter"
+            aria-label="Filter map and history by traveller"
+        >
+            <button
+                type="button"
+                data-traveller="all"
+                aria-pressed="true"
+            >
+                All
+            </button>
+
+            <button
+                type="button"
+                data-traveller="family"
+                aria-pressed="false"
+            >
+                Family
+            </button>
+
+            <button
+                type="button"
+                data-traveller="oliver"
+                aria-pressed="false"
+            >
+                Oliver
+            </button>
+
+            <button
+                type="button"
+                data-traveller="kayleigh"
+                aria-pressed="false"
+            >
+                Kayleigh
+            </button>
+
+            <button
+                type="button"
+                data-traveller="poppy"
+                aria-pressed="false"
+            >
+                Poppy
+            </button>
+
+            <button
+                type="button"
+                data-traveller="charles"
+                aria-pressed="false"
+            >
+                Charles
+            </button>
+        </nav>
+
+        <div
+            class="travel-stats"
+            id="travel-stats"
+            aria-live="polite"
+        ></div>
+
+        <section class="map-wrapper">
+            <object
+                id="travel-map-object"
+                data="world-map.svg"
+                type="image/svg+xml"
+            ></object>
+        </section>
+
+        <section
+            id="place-details"
+            class="place-details"
+            aria-live="polite"
+        >
+            <h2>Select a country or state</h2>
+            <p>Visited places are shown in green.</p>
+        </section>
+
+        <section
+            class="history-section"
+            aria-labelledby="history-title"
+        >
+            <header class="section-heading">
+                <h2 id="history-title">
+                    Journeys
+                </h2>
+
+                <p id="history-summary"></p>
+            </header>
+
+            <ol
+                id="event-history"
+                class="event-history"
+            ></ol>
+        </section>
+
+        <p
+            id="load-error"
+            class="load-error"
+            hidden
+        ></p>
+
+    </main>
+
+    <script src="travel-map.js"></script>
+
+</body>
+
+</html>
