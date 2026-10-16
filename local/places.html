@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Places</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<style type="text/css">
+:root{--fg:#013220;--bg:#faf0e6;--accent:#7B0323;--tc:195;--vc:23;}
+@font-face{font-family:'garamond';src:url('https://ols.wtf/rpgs/racheek/docs/garamond.ttf')}
+@font-face{font-family:'garamondi';src:url('https://ols.wtf/rpgs/racheek/docs/garamondi.ttf')}
+html{background:var(--bg);padding:3rem 1rem;}
+body{color:var(--fg);max-width:600px;margin:0 auto;font-family:'garamond',serif;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.6rem;font-size:1.2rem;text-align:justify;text-justify:inter-word;counter-reset:sidenote;}
+header{border-bottom:solid 2px var(--accent);padding-bottom:2rem;margin-bottom:2rem;}
+header p {font-family:'garamondi';margin-top:0.5rem;}
+main{margin-right:8rem;}
+.drops{color:var(--bg);height:90px;width:90px;background:url('med.svg');background-size:cover;display:flex;justify-content:center;align-items:center;font-size:4rem;font-weight:bold;float:left;margin-right:0.5rem;margin-bottom:0.5rem;border:solid var(--fg) 3px;text-shadow: -3px 0 var(--fg), 0 3px var(--fg), 3px 0 var(--fg), 0 -3px var(--fg);margin-top:0.5rem;}
+main p.first:first-child:first-line{font-variant-caps:small-caps;}
+em{font-family:'garamondi';}
+h1{font-family:'garamond';font-weight:normal;font-variant:small-caps;}
+h2{text-align:center;font-weight:normal;font-variant:small-caps;}
+h2::before{content:'☙ '}
+h2::after{content:' ❧'}
+a{color:var(--fg);}
+aside{display:inline;float:right;position:relative;width:7rem;margin-right: -8rem;font-family:'garamondi';color:var(--accent);font-size:0.9rem;line-height:1rem;margin-top:-2.5rem;}
+.sidenote-number{counter-increment;}
+.sidenote::before{content:counter(sidenote)".";position:relative;vertical-align:baseline;font-size:0.9rem;}
+.sidenote-number::after { content: counter(sidenote-counter); vertical-align: super; font-size: 0.7em; font-weight: bold; margin-right: 0.5rem;}
+hr{border:solid 1px var(--accent);}
+li.europe{list-style-image:url('placeeu.svg');}
+li.africa{list-style-image:url('placeafrica.svg');}
+li.america{list-style-image:url('placeamerica.svg');}
+li.aus{list-style-image:url('placeoce.svg');}
+li.asia{list-style-image:url('placeasia.svg');}
+ul li::marker{font-size:1.7rem;}
+ul{width:100%;display:grid;gap:1rem;grid-template-columns:1fr 1fr 1fr;}
+.bar{width:100%;border:solid 2px var(--fg);}
+.progress{background:var(--accent);height:20px;}
+
+@media (max-width: 60rem){
+main{margin-right:0;}
+header{flex-direction:column;}
+header img{margin-bottom:1rem;}
+header div > *{text-align:center;}
+aside{display:block;float:none;margin:5% 10% 5% 10%;width: 80%;}
+ul{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Places</h1>
+<p>It is better to see something once than to hear about it 1,000 times</p>
+</header>
+<main>
+<p><span class="drops">E</span>xploration isn't necessarily a large part of my life, but I thought it would be interesting to log the countries, US states, and English ceremonial counties I have been to thus far. It might also be good to include a checklist of the <em>"top 20 cities"</em> or something that I can measure myself against</p>
+<div class="bar">
+<div class="progress" style="width:calc((var(--vc) / var(--tc)) * 100%);}"></div>
+</div>
+<aside>How many of the 195 UN-recognised countries I have visited</aside>
+<ul style="display:none;">
+<li class="europe">Austria</li>
+<li class="america">Canada</li>
+<li class="africa">Cape Verde</li>
+<li class="europe">Czechia</li>
+<li class="africa">Egypt</li>
+<li class="europe">Finland</li>
+<li class="europe">France</li>
+<li class="europe">Germany</li>
+<li class="europe">Greece</li>
+<li class="europe">Hungary</li>
+<li class="europe">Ireland</li>
+<li class="europe">Italy</li>
+<li class="europe">Malta</li>
+<li class="africa">Morocco</li>
+<li class="europe">The Netherlands</li>
+<li class="europe">Norway</li>
+<li class="europe">Portugal</li>
+<li class="europe">Romania</li>
+<li class="europe">Spain</li>
+<li class="europe">Switzerland</li>
+<li class="asia">UAE</li>
+<li class="america">USA</li>
+</ul>
+<h2>Global Travel</h2>
+<p>Below is a map of the world with all countries I have visited marked in green. I have put details of trips I have taken solo, with my wife, and as a family on <a href="https://leaversmith.com/places.html">this page</a> on our family website</p>
+<aside>It's missing Antarctica because it caused too much white space. If I ever visit there I will amend this map</aside>
+<object data="world-map.svg" type="image/svg+xml">
+<svg src="world-map.svg">
+</object>
+<h2>English Ceremonial Counties</h2>
+<object data="counties.svg" type="image/svg+xml">
+<svg src="counties.svg">
+</object>
+	<p>made with love and frustration by <a href="/">ols</a></p>
+</main>
+</body>
+</html>
