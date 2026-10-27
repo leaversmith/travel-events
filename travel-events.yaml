@@ -271,7 +271,9 @@ places:
 # Places we'd like to visit, shown blue on the map. Visited or upcoming wins.
 # Format: place | optional locations, e.g.
 #   - JP | Tokyo, Kyoto
-wishlist: []
+wishlist:
+  - BR
+  - EG
 
 events:
   - 2020-10 | US-NV | parents | Las Vegas
