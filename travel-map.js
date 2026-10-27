@@ -118,12 +118,67 @@ function normaliseTravelData(
                 )
         );
 
+    const wishlist =
+        normaliseWishlist(
+            source.wishlist ?? [],
+            placeAliases
+        );
+
     return {
         travellers,
         groups,
         places,
-        events
+        events,
+        wishlist
     };
+}
+
+
+// Wishlist entries: "place | optional locations", e.g. "JP | Tokyo, Kyoto".
+function normaliseWishlist(
+    source,
+    placeAliases
+) {
+    const wishlist =
+        new Map();
+
+    source.forEach(
+        (
+            raw,
+            index
+        ) => {
+            const [
+                placeValue,
+                locationValue = ""
+            ] =
+                String(raw)
+                    .split("|")
+                    .map(
+                        part =>
+                            part.trim()
+                    );
+
+            const code =
+                placeAliases.get(
+                    placeValue.toUpperCase()
+                );
+
+            if (
+                !code
+            ) {
+                throw new Error(
+                    `Unknown place "${placeValue}" in wishlist entry ${index + 1}.`
+                );
+            }
+
+            wishlist.set(
+                code,
+                locationValue
+            );
+        }
+    );
+
+    return wishlist;
 }
 
 
@@ -1323,7 +1378,7 @@ function renderTravelMap() {
 
     mapDocument
         .querySelectorAll(
-            ".country.visited, .state.visited, .country.planned, .state.planned"
+            ".country.visited, .state.visited, .country.planned, .state.planned, .country.wishlist, .state.wishlist"
         )
         .forEach(
             element =>
@@ -1331,7 +1386,8 @@ function renderTravelMap() {
                     .classList
                     .remove(
                         "visited",
-                        "planned"
+                        "planned",
+                        "wishlist"
                     )
         );
 
@@ -1388,6 +1444,162 @@ function renderTravelMap() {
             )
         );
     }
+
+    applyWishlistStatus();
+    applyStripes();
+}
+
+
+const statusColours = {
+    visited: "#294530",
+    planned: "#7B0323",
+    wishlist: "#1f5fa8"
+};
+
+
+// Places with more than one status get diagonal stripes, one per colour.
+function applyStripes() {
+    const svgNs =
+        "http://www.w3.org/2000/svg";
+
+    let defs =
+        mapDocument.querySelector(
+            "defs"
+        );
+
+    if (
+        !defs
+    ) {
+        defs =
+            mapDocument.createElementNS(
+                svgNs,
+                "defs"
+            );
+
+        mapDocument
+            .documentElement
+            .prepend(
+                defs
+            );
+    }
+
+    mapDocument
+        .querySelectorAll(
+            ".country, .state"
+        )
+        .forEach(
+            element => {
+                element.style.fill = "";
+
+                const statuses =
+                    Object.keys(
+                        statusColours
+                    ).filter(
+                        status =>
+                            element.classList.contains(
+                                status
+                            )
+                    );
+
+                if (
+                    statuses.length < 2
+                ) {
+                    return;
+                }
+
+                const id =
+                    `stripes-${statuses.join("-")}`;
+
+                if (
+                    !mapDocument.getElementById(
+                        id
+                    )
+                ) {
+                    const width = 6;
+
+                    const pattern =
+                        mapDocument.createElementNS(
+                            svgNs,
+                            "pattern"
+                        );
+
+                    pattern.setAttribute("id", id);
+                    pattern.setAttribute("patternUnits", "userSpaceOnUse");
+                    pattern.setAttribute("width", width * statuses.length);
+                    pattern.setAttribute("height", 10);
+                    pattern.setAttribute("patternTransform", "rotate(45)");
+
+                    statuses.forEach(
+                        (
+                            status,
+                            index
+                        ) => {
+                            const rect =
+                                mapDocument.createElementNS(
+                                    svgNs,
+                                    "rect"
+                                );
+
+                            rect.setAttribute("x", index * width);
+                            rect.setAttribute("width", width);
+                            rect.setAttribute("height", 10);
+                            rect.setAttribute("fill", statusColours[status]);
+
+                            pattern.append(
+                                rect
+                            );
+                        }
+                    );
+
+                    defs.append(
+                        pattern
+                    );
+                }
+
+                element.style.fill =
+                    `url(#${id})`;
+            }
+        );
+}
+
+
+// Wishlist places are blue; mixed statuses become stripes.
+function applyWishlistStatus() {
+    for (
+        const code
+        of travelData.wishlist.keys()
+    ) {
+        const regions =
+            Object.keys(
+                travelData
+                    .places[code]
+                    ?.regions ??
+                {}
+            );
+
+        for (
+            const placeCode
+            of regions.length
+                ? regions
+                : [code]
+        ) {
+            const element =
+                mapDocument
+                    .getElementById(
+                        placeCode
+                    );
+
+            if (
+                element
+            ) {
+                element
+                    .classList
+                    .add(
+                        "wishlist"
+                    );
+            }
+        }
+    }
 }
 
 
@@ -1426,8 +1638,6 @@ function applyMapStatus(
             .add(
                 "visited"
             );
-
-        return;
     }
 
     if (
@@ -1481,6 +1691,27 @@ function renderPlaceDetails(
                 )}.
             </p>
         `;
+
+        if (
+            travelData.wishlist.has(
+                placeCode
+            )
+        ) {
+            const locations =
+                travelData.wishlist.get(
+                    placeCode
+                );
+
+            detailsTarget.innerHTML += `
+                <p class="wishlist-label">
+                    On the wishlist${
+                        locations
+                            ? `: ${escapeHtml(locations)}`
+                            : ""
+                    }.
+                </p>
+            `;
+        }
 
         return;
     }
