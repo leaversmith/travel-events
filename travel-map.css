@@ -422,3 +422,38 @@ body {
         font-size: 1.12rem;
     }
 }
+
+
+/* Map key: colours match world-map.svg */
+.map-key {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 18px;
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.map-key .swatch {
+    display: inline-block;
+    width: 0.8em;
+    height: 0.8em;
+    margin-right: 6px;
+    vertical-align: -0.05em;
+}
+
+.swatch.visited { background: #294530; }
+.swatch.planned { background: #7B0323; }
+.swatch.wishlist { background: #1f5fa8; }
+
+.swatch.mixed {
+    background: repeating-linear-gradient(
+        45deg,
+        #294530 0 3px,
+        #7B0323 3px 6px,
+        #1f5fa8 6px 9px
+    );
+}
