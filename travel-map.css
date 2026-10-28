@@ -448,12 +448,3 @@ body {
 .swatch.visited { background: #294530; }
 .swatch.planned { background: #7B0323; }
 .swatch.wishlist { background: #1f5fa8; }
-
-.swatch.mixed {
-    background: repeating-linear-gradient(
-        45deg,
-        #294530 0 3px,
-        #7B0323 3px 6px,
-        #1f5fa8 6px 9px
-    );
-}
